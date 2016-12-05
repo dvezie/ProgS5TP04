@@ -44,7 +44,11 @@ public class TriRapide {
 	 * @pre 0 ≤ binf, bsup < T.length
 	 */
 	static void triRapide(int[] T, int binf, int bsup) {
-		
+		int pivot = partager(T, binf, bsup);
+		if(binf < pivot - 1)
+			triRapide(T, binf, pivot - 1);
+		if(bsup > pivot + 1)
+			triRapide(T, pivot + 1, bsup);
 	}
 	
 	/** 
