@@ -10,7 +10,32 @@ public class TriRapide {
 	 * décrit au paragraphe 2.2 et met le pivot à sa place.
 	 * @return indice auquel a été placé le pivot
 	 */
-	static int partager(int[] T, int binf, int bsup);
+	static int partager(int[] T, int binf, int bsup) {
+		assert 0 <= binf && bsup < T.length : "Echec : 0 <= binf && bsup < T.length";
+		while(binf < bsup) {
+			while(binf < bsup) {
+				if(T[bsup] <= T[0]) 
+					break;
+				bsup--;
+			}
+			while(binf < bsup) {
+				if(T[binf] > T[0])
+					break;
+				binf++;
+			}
+			if(binf < bsup) {
+				int tmp = T[binf];
+				T[binf] = T[bsup];
+				T[bsup] = tmp;
+			}
+			else {
+				int tmp = T[binf];
+				T[binf] = T[0];
+				T[0] = tmp;
+			}
+		}
+		return binf;
+	}
 	
 	/** 
 	 * triRapide : trier récursivement un sous−tableau (algorithme du tri rapide)
@@ -18,7 +43,9 @@ public class TriRapide {
 	 * @param binf, bsup : indices du premier et du dernier élément du sous-tableau à trier
 	 * @pre 0 ≤ binf, bsup < T.length
 	 */
-	static void triRapide(int[] T, int binf, int bsup);
+	static void triRapide(int[] T, int binf, int bsup) {
+		
+	}
 	
 	/** 
 	 * trier : trier un tableau par ordre croissant avec l’algorithme du tri rapide
@@ -26,5 +53,7 @@ public class TriRapide {
 	 * @param nb : nombre d’éléments à trier dans le tableau
 	 * @pre 1 < nb ≤ T.length
 	 */
-	public static void trier(int[] T, int nb);
+	public static void trier(int[] T, int nb) {
+		
+	}
 }
